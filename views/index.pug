@@ -2,22 +2,40 @@ doctype html
 html(lang='en')
     head
         title File Server
+        link(rel='stylesheet', href='/css-file-icons.css' type='text/css')
+        link(rel='stylesheet', href='/style.css' type='text/css')
     body
 
-        ul
+        h1 Nic's Personal File Server
+
+        div(class="file-list")
             each val in fileList
-                li= val
-                a(href=val download) download
+                    div(class="file-flex")
+                        if ["jpg", "png", "svg", "jpeg", "gif"].includes(val.split('.').pop().toLowerCase())
+                            img(src=val class="file-thumbnail")
+                            p= val
+                            div(class="icon-wrap")
+                                a(href=val download)
+                                    i(class="gg-software-download")
+                            //div(class="icon-wrap")
+                            //    a(href='/delete/')
+                            //        i(class="gg-close")
+                            form(method='post' action='/delete' enctype='application/x-www-form-urlencoded')
+                                input(type="hidden" name="file" value=val)
+                                input(type='submit' value="X")
+                        else
+                            include file-icons
+                            p= val
+                            a(href=val download)
+                                i(class="gg-software-download")
+                            form(method='post' action='/delete' enctype='application/x-www-form-urlencoded')
+                                input(type="hidden" name="file" value=val)
+                                input(type='submit' value="X")
 
         form(method='post' action='/upload' enctype='multipart/form-data')
             input(type='file' name='fileUploaded')
             input(type='submit')
 
-        form(method='post' action='/new-folder' enctype='multipart/form-data')
+        form(method='post' action='/new-folder' enctype='application/x-www-form-urlencoded')
             input(type='text' name='folderName')
             input(type='submit')
-
-        p #{name} is the filename!
-        img(src=name alt=name)
-        a(href=name download)
-            p download
