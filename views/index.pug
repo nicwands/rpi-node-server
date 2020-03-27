@@ -4,10 +4,20 @@ html(lang='en')
         title File Server
     body
 
-form(method='post' action='/' enctype='multipart/form-data')
-    input(type='file' name='fileUploaded')
-    input(type='submit')
-form
+        ul
+            each val in fileList
+                li= val
+                a(href=val download) download
 
-p #{name} is the filename!
-img(src=name alt=name)
+        form(method='post' action='/upload' enctype='multipart/form-data')
+            input(type='file' name='fileUploaded')
+            input(type='submit')
+
+        form(method='post' action='/new-folder' enctype='multipart/form-data')
+            input(type='text' name='folderName')
+            input(type='submit')
+
+        p #{name} is the filename!
+        img(src=name alt=name)
+        a(href=name download)
+            p download
