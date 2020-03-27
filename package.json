@@ -4,7 +4,8 @@
   "description": "Simple file server for raspberry pi",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "npx nodemon"
   },
   "repository": {
     "type": "git",
@@ -15,5 +16,11 @@
   "bugs": {
     "url": "https://github.com/nicwands/rpi-node-server/issues"
   },
-  "homepage": "https://github.com/nicwands/rpi-node-server#readme"
+  "homepage": "https://github.com/nicwands/rpi-node-server#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.2"
+  }
 }
