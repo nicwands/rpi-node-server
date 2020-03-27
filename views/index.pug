@@ -1,0 +1,13 @@
+doctype html
+html(lang='en')
+    head
+        title File Server
+    body
+
+form(method='post' action='/' enctype='multipart/form-data')
+    input(type='file' name='fileUploaded')
+    input(type='submit')
+form
+
+p #{name} is the filename!
+img(src=name alt=name)
