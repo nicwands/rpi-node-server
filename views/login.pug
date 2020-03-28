@@ -1,0 +1,17 @@
+extends layout
+
+block content
+    input(type="text" id="email" placeholder="email")
+    input(type="password" id="password" placeholder="password")
+    button(onclick="sendRequest()") login
+
+    script.
+        function sendRequest() {
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            getToken(email, password).then(function (returned) {
+                localStorage.setItem("token", returned.token);
+            }).catch(function (err) {
+                console.log(err);
+            })
+        }

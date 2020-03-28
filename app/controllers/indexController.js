@@ -1,13 +1,21 @@
 import fs from 'fs';
+import jwt from "jsonwebtoken";
 
 export const getIndex = (req, res) => {
-    console.log("fetching index");
-    const files = fs.readdirSync('./uploads');
-    const cleanFiles = files.filter(function(file) {
-        return file !== ".gitkeep"
-    });
-    res.render('index', {
-        fileList: cleanFiles
+    jwt.verify(req.token, 'secretkey', (err, authData) => {
+        if (err) {
+            console.log("Invalid token");
+            res.sendStatus(403);
+        } else {
+            console.log("fetching index");
+            const files = fs.readdirSync('./uploads');
+            const cleanFiles = files.filter(function(file) {
+                return file !== ".gitkeep"
+            });
+            res.render('index', {
+                fileList: cleanFiles
+            });
+        }
     });
 };
 
