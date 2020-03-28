@@ -82,6 +82,10 @@ h1 {
     height: 3em;
 }
 
+.login-error {
+    display: none;
+}
+
 @media only screen and (max-width: 1000px) {
     .file-list {
         width: 90%;

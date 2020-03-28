@@ -12,8 +12,8 @@ const storage = multer.diskStorage({
 const upload = multer({ storage: storage });
 
 import { uploadFile } from "../controllers/uploadController";
-// import { verifyToken } from "../utils/authUtil";
+import { verifyToken } from "../utils/authUtil";
 
-router.post('/', upload.single('fileUploaded'), uploadFile);
+router.post('/', verifyToken, upload.single('fileUploaded'), uploadFile);
 
 export default router;

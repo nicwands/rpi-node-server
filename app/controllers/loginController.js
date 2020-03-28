@@ -8,8 +8,10 @@ export const validate = async (req, res) => {
         validateLogin(clientAuth.email, clientAuth.password).then((returned) => {
             if (returned !== '401') {
                 console.log("token: ", returned);
-                // res.json({status: 200, token: returned});
-                res.cookie('access_token', returned);
+                res.cookie('access_token', returned, {
+                    maxAge: 21600,
+                    httpOnly: true
+                });
                 res.sendStatus(200);
             } else {
                 res.sendStatus(401)
