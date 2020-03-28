@@ -1,72 +1,38 @@
-const express = require('express');
-const fs = require('fs');
-const bodyParser = require('body-parser');
-// const thumbnnail = require('./util/thumbnail');
-const path = require('path');
+import createError from 'http-errors';
+import express from 'express';
+import bodyParser from 'body-parser';
+import logger from 'morgan';
+import cors from 'cors';
 
-const multer = require('multer');
-const storage = multer.diskStorage({
-	destination: function (req, file, cb) {
-		cb(null, './uploads/')
-	},
-	filename: function (req, file, cb) {
-		cb(null, file.originalname)
-	}
-});
-const upload = multer({ storage: storage });
+import routes from './routes';
 
 const app = express();
 
 app.set('view engine', 'pug');
+app.use(logger('dev'));
+app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static('uploads'));
 app.use(express.static('public'));
+app.use(cors());
 
-app.get('/', function (req, res) {
-	console.log("fetching index");
-	const files = fs.readdirSync('./uploads');
-	const cleanFiles = files.filter(function(file) {
-		return file !== ".gitkeep"
-	});
-	res.render('index', {
-		fileList: cleanFiles
-	});
+// Hook up all routes
+app.use('/', routes);
+
+// catch 404 and forward to error handler
+app.use(function(req, res, next) {
+	next(createError(404));
 });
 
-app.get('/:folderName', function (req, res) {
-	console.log(req.body);
-	console.log("fetching folder " + req.params.folderName);
-	const files = fs.readdirSync('./uploads/' + req.params.folderName);
-	res.render('index', {
-		fileList: files
-	});
+// error handler
+app.use(function(err, req, res, next) {
+	// set locals, only providing error in development
+	res.locals.message = err.message;
+	res.locals.error = req.app.get('env') === 'development' ? err : {};
+
+	// render the error page
+	res.status(err.status || 500);
+	res.render('error');
 });
 
-app.post('/upload', upload.single('fileUploaded'), function(req, res) {
-	console.dir(req.file);
-	// async function createThumbnail() {
-	// 	const thumbnail = await thumbnnail(path.join(__dirname, "uploads/", req.file.originalname));
-	// }
-	// createThumbnail();
-	res.redirect('/');
-});
-
-app.post('/delete', function(req, res) {
-	console.log("deleting ", req.body.file);
-	fs.unlinkSync(path.join(__dirname, "uploads/", req.body.file));
-	res.redirect('/');
-});
-
-app.post('/create-folder', function (req, res) {
-	console.log("adding folder ", req.body.folderName);
-	console.log(req.body);
-	if (req.body.currentFolder.length > 0) {
-		const folderPath = path.join(__dirname, "uploads/", req.body.currentFolder, req.body.folderName);
-		console.log(folderPath);
-		fs.mkdirSync(folderPath, { recursive: true });
-	}
-	fs.mkdirSync(path.join(__dirname, "uploads/", req.body.folderName), { recursive: true });
-	res.redirect('/')
-});
-
-module.exports = app;
+export default app;

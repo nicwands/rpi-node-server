@@ -43,7 +43,7 @@ html(lang='en')
                                 input(type="hidden" name="file" value=val)
                                 input(type='submit' value="X")
 
-        form(method='post' action='/create-folder' enctype='application/x-www-form-urlencoded')
+        form(method='post' action='/folder/create' enctype='application/x-www-form-urlencoded')
             input(type="hidden" name="currentFolder" value="Pictures")
             input(type='text' name='folderName')
             input(type='submit')
