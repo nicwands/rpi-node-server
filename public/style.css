@@ -1,8 +1,11 @@
 @import url('https://css.gg/software-download.css');
 @import url('https://css.gg/close.css');
+@import url('https://css.gg/folder.css');
+@import url('https://css.gg/file-add.css');
 
 body {
     font-family: sans-serif;
+    padding-bottom: 3em;
 }
 
 h1 {
@@ -34,6 +37,12 @@ h1 {
     width: 10%;
 }
 
+.folder-icon {
+    width: 5%;
+    margin: 0 2.5%;
+    height: 1.5em;
+}
+
 .icon-wrap {
     width: 5%;
 }
@@ -42,6 +51,35 @@ h1 {
     width: 80%;
     text-align: left;
     padding-left: 10px;
+}
+
+.input-file {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+}
+
+/*.input-file + label {*/
+/*    width: 100%;*/
+/*}*/
+
+.input-file:focus + label,
+.input-file + label:hover {
+    cursor: pointer;
+    color: #707070;
+}
+
+.add-file-icon-wrap {
+    margin: 3em auto;
+    width: 3em;
+}
+
+.gg-file-add {
+    width: 3em;
+    height: 3em;
 }
 
 @media only screen and (max-width: 1000px) {

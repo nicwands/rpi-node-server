@@ -8,6 +8,12 @@ html(lang='en')
 
         h1 Nic's Personal File Server
 
+        form(method='post' action='/upload' enctype='multipart/form-data')
+            input(class="input-file" type='file' name='fileUploaded' id="fileUploaded" onchange="form.submit()")
+            label(for="fileUploaded")
+                div(class="add-file-icon-wrap")
+                    i(class="gg-file-add")
+
         div(class="file-list")
             each val in fileList
                     div(class="file-flex")
@@ -23,6 +29,11 @@ html(lang='en')
                             form(method='post' action='/delete' enctype='application/x-www-form-urlencoded')
                                 input(type="hidden" name="file" value=val)
                                 input(type='submit' value="X")
+                        else if !val.includes('.')
+                            i(class="gg-folder folder-icon")
+                            p= val
+                            form(method='get' action='/' + val + "/")
+                                input(type='submit' value="open")
                         else
                             include file-icons
                             p= val
@@ -32,10 +43,7 @@ html(lang='en')
                                 input(type="hidden" name="file" value=val)
                                 input(type='submit' value="X")
 
-        form(method='post' action='/upload' enctype='multipart/form-data')
-            input(type='file' name='fileUploaded')
-            input(type='submit')
-
-        form(method='post' action='/new-folder' enctype='application/x-www-form-urlencoded')
+        form(method='post' action='/create-folder' enctype='application/x-www-form-urlencoded')
+            input(type="hidden" name="currentFolder" value="Pictures")
             input(type='text' name='folderName')
             input(type='submit')
