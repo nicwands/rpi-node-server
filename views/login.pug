@@ -1,0 +1,21 @@
+extends layout
+
+block content
+    input(type="text" id="email" placeholder="email")
+    input(type="password" id="password" placeholder="password")
+    button(onclick="sendRequest()") login
+    p(class="login-error" id="error") Invalid login attempt
+
+    script.
+        function sendRequest() {
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            getToken(email, password).then(function (res) {
+                console.log("status", res.status);
+                if (res.status === 200) {
+                    location.reload();
+                } else {
+                    document.getElementById('error').style.display = "block";
+                }
+            })
+        }

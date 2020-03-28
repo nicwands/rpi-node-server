@@ -1,49 +1,44 @@
-doctype html
-html(lang='en')
-    head
-        title File Server
-        link(rel='stylesheet', href='/css-file-icons.css' type='text/css')
-        link(rel='stylesheet', href='/style.css' type='text/css')
-    body
+extends layout
 
-        h1 Nic's Personal File Server
+block content
+    h1 Nic's Personal File Server
 
-        form(method='post' action='/upload' enctype='multipart/form-data')
-            input(class="input-file" type='file' name='fileUploaded' id="fileUploaded" onchange="form.submit()")
-            label(for="fileUploaded")
-                div(class="add-file-icon-wrap")
-                    i(class="gg-file-add")
+    form(method='post' action='/upload' enctype='multipart/form-data')
+        input(class="input-file" type='file' name='fileUploaded' id="fileUploaded" onchange="form.submit()")
+        label(for="fileUploaded")
+            div(class="add-file-icon-wrap")
+                i(class="gg-file-add")
 
-        div(class="file-list")
-            each val in fileList
-                    div(class="file-flex")
-                        if ["jpg", "png", "svg", "jpeg", "gif"].includes(val.split('.').pop().toLowerCase())
-                            img(src=val class="file-thumbnail")
-                            p= val
-                            div(class="icon-wrap")
-                                a(href=val download)
-                                    i(class="gg-software-download")
-                            //div(class="icon-wrap")
-                            //    a(href='/delete/')
-                            //        i(class="gg-close")
-                            form(method='post' action='/delete' enctype='application/x-www-form-urlencoded')
-                                input(type="hidden" name="file" value=val)
-                                input(type='submit' value="X")
-                        else if !val.includes('.')
-                            i(class="gg-folder folder-icon")
-                            p= val
-                            form(method='get' action='/' + val + "/")
-                                input(type='submit' value="open")
-                        else
-                            include file-icons
-                            p= val
+    div(class="file-list")
+        each val in fileList
+                div(class="file-flex")
+                    if ["jpg", "png", "svg", "jpeg", "gif"].includes(val.split('.').pop().toLowerCase())
+                        img(src=val class="file-thumbnail")
+                        p= val
+                        div(class="icon-wrap")
                             a(href=val download)
                                 i(class="gg-software-download")
-                            form(method='post' action='/delete' enctype='application/x-www-form-urlencoded')
-                                input(type="hidden" name="file" value=val)
-                                input(type='submit' value="X")
+                        //div(class="icon-wrap")
+                        //    a(href='/delete/')
+                        //        i(class="gg-close")
+                        form(method='post' action='/delete' enctype='application/x-www-form-urlencoded')
+                            input(type="hidden" name="file" value=val)
+                            input(type='submit' value="X")
+                    else if !val.includes('.')
+                        i(class="gg-folder folder-icon")
+                        p= val
+                        form(method='get' action='/' + val + "/")
+                            input(type='submit' value="open")
+                    else
+                        include file-icons
+                        p= val
+                        a(href=val download)
+                            i(class="gg-software-download")
+                        form(method='post' action='/delete' enctype='application/x-www-form-urlencoded')
+                            input(type="hidden" name="file" value=val)
+                            input(type='submit' value="X")
 
-        form(method='post' action='/folder/create' enctype='application/x-www-form-urlencoded')
-            input(type="hidden" name="currentFolder" value="Pictures")
-            input(type='text' name='folderName')
-            input(type='submit')
+    form(method='post' action='/folder/create' enctype='application/x-www-form-urlencoded')
+        input(type="hidden" name="currentFolder" value="Pictures")
+        input(type='text' name='folderName')
+        input(type='submit')
