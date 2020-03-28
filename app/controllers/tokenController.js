@@ -7,8 +7,14 @@ export const getToken = (req, res) => {
     } else {
         validateLogin(clientAuth.email, clientAuth.password).then((returned) => {
             if (returned !== '401') {
-                console.log(returned);
-                res.json({status: 200, token: returned});
+                console.log("token: ", returned);
+                // res.json({status: 200, token: returned});
+                res.cookie('token', returned, {
+                    httpOnly: true,
+                    secure: true,
+                    maxAge: 3600000
+                });
+                res.sendStatus(200);
             } else {
                 res.sendStatus(401)
             }

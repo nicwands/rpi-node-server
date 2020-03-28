@@ -1,4 +1,19 @@
-export const getLogin = (req, res) => {
-    console.log("fetching login");
-    res.render('login');
+import {decodeClientAuth, validateLogin} from "../utils/authUtil";
+
+export const validate = async (req, res) => {
+    const clientAuth = decodeClientAuth(req);
+    if (clientAuth === '403') {
+        res.sendStatus(403);
+    } else {
+        validateLogin(clientAuth.email, clientAuth.password).then((returned) => {
+            if (returned !== '401') {
+                console.log("token: ", returned);
+                // res.json({status: 200, token: returned});
+                res.cookie('access_token', returned);
+                res.sendStatus(200);
+            } else {
+                res.sendStatus(401)
+            }
+        })
+    }
 };

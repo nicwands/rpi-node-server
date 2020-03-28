@@ -1,6 +1,7 @@
 import createError from 'http-errors';
 import express from 'express';
 import bodyParser from 'body-parser';
+import cookieParser from 'cookie-parser';
 import logger from 'morgan';
 import cors from 'cors';
 
@@ -12,9 +13,17 @@ app.set('view engine', 'pug');
 app.use(logger('dev'));
 app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(cookieParser());
 app.use(express.static('uploads'));
 app.use(express.static('public'));
-app.use(cors());
+app.use(cors({
+	origin: [
+		`${process.env.FRONT_URL}`,
+		'http://localhost:3000/login',
+		'http://localhost:3000/token'
+	],
+	credentials: true
+}));
 
 // Hook up all routes
 app.use('/', routes);

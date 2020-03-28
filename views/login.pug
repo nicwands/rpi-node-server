@@ -9,9 +9,5 @@ block content
         function sendRequest() {
             const email = document.getElementById('email').value;
             const password = document.getElementById('password').value;
-            getToken(email, password).then(function (returned) {
-                localStorage.setItem("token", returned.token);
-            }).catch(function (err) {
-                console.log(err);
-            })
+            getToken(email, password);
         }

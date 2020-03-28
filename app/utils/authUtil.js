@@ -1,16 +1,21 @@
 import jwt from "jsonwebtoken";
 
-export const verifyToken = (req, res, next) => {
-    const bearerHeader = req.headers['authorization'];
-    // Check if bearer is undefined
-    if (typeof bearerHeader !== 'undefined') {
-        req.token = bearerHeader.split(' ')[1];
-        // Next middleware
+export const verifyToken = async (req, res, next) => {
+    console.log(req.cookies);
+    const token = req.cookies.access_token || '';
+    try {
+        if (!token) {
+            console.log("token was not present");
+            return res.render('login');
+        }
+        const decrypt = await jwt.verify(token, process.env.SECRET_KEY);
+        req.user = {
+            email: decrypt.email,
+            password: decrypt.password,
+        };
         next();
-    } else {
-        // Forbidden
-        console.log("Token not present on request");
-        res.sendStatus(403);
+    } catch (err) {
+        return res.status(500).json(err.toString());
     }
 };
 
@@ -34,7 +39,7 @@ export const decodeClientAuth = (req) => {
 export const validateLogin = async (email, password) => {
     const comparePasswords = new Promise((resolve, reject) => {
         if (email === process.env.USER_EMAIL && password === process.env.PASSWORD) {
-            jwt.sign({email}, 'secretkey', (err, token) => {
+            jwt.sign({email}, process.env.SECRET_KEY, (err, token) => {
                 resolve(token);
             });
         } else {
