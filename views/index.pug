@@ -25,8 +25,7 @@ block content
                     else if !val.includes('.')
                         i(class="gg-folder folder-icon")
                         p= val
-                        form(method='get' action='/' + val + "/")
-                            input(type='submit' value="open")
+                        input(type="submit" value="X" id=val onclick="sendDeleteFolder('" + val + "')")
                     else
                         include file-icons
                         p= val
@@ -68,6 +67,14 @@ block content
             // const current = document.getElementById('current').value;
             const folderName = document.getElementById('folderName').value;
             createFolder(folderName).then(function (res) {
+                if (res.status === 200) {
+                    location.reload();
+                }
+            })
+        }
+
+        function sendDeleteFolder(folderName) {
+            deleteFolder(folderName).then(function (res) {
                 if (res.status === 200) {
                     location.reload();
                 }

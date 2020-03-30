@@ -65,3 +65,22 @@ function createFolder(folderName) {
             console.log(err);
         })
 }
+
+function deleteFolder(folderName) {
+    return fetch(`http://localhost:3000/folder/delete`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        credentials: 'include',
+        body: JSON.stringify({
+            folderName
+        })
+    })
+        .then(response => {
+            return response;
+        })
+        .catch(err => {
+            console.log(err);
+        })
+}

@@ -12,3 +12,21 @@ export const createFolder = (req, res) => {
     fs.mkdirSync(path.join(appRoot.path, "uploads/", req.body.folderName), { recursive: true });
     res.sendStatus(200);
 };
+
+export const deleteFolder = (req, res) => {
+    console.log("removing folder ", req.body.folderName);
+    const folderPath = appRoot.path + "/uploads/" + req.body.folderName;
+
+    if (fs.existsSync(folderPath)) {
+        fs.readdirSync(folderPath).forEach((file, index) => {
+            const curPath = path.join(folderPath, file);
+            if (fs.lstatSync(curPath).isDirectory()) { // recurse
+                deleteFolderRecursive(curPath);
+            } else { // delete file
+                fs.unlinkSync(curPath);
+            }
+        });
+        fs.rmdirSync(folderPath);
+        res.sendStatus(200);
+    }
+};
