@@ -5,15 +5,18 @@ export const getIndex = (req, res) => {
     const cleanFiles = files.filter(function(file) {
         return file !== ".gitkeep"
     });
-    res.render('index', {
-        fileList: cleanFiles
-    });
-};
+    let fileList = [];
 
-export const getFolder = (req, res) => {
-    console.log(req.body);
-    const files = fs.readdirSync('./uploads/' + req.params.folderName);
+    for (let i = 0; i < cleanFiles.length; i++) {
+        let tempObj = {};
+        console.log("type:: ", typeof cleanFiles[i]);
+
+        tempObj['name'] = cleanFiles[i];
+        tempObj['path'] = cleanFiles[i];
+
+        fileList.push(tempObj);
+    }
     res.render('index', {
-        fileList: files
+        fileList
     });
 };

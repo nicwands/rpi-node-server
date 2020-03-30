@@ -2,6 +2,25 @@ import path from "path";
 import fs from 'fs';
 import appRoot from 'app-root-path';
 
+export const openFolder = (req, res) => {
+    let files = [];
+    const fileNames = fs.readdirSync('./uploads/' + req.params.folderName);
+
+    for (let i = 0; i < fileNames.length; i++) {
+        let tempObj = {};
+        const filePath = ("/" + req.params.folderName + "/" + fileNames[i]);
+
+        tempObj['name'] = fileNames[i];
+        tempObj['path'] = filePath;
+
+        files.push(tempObj);
+    }
+
+    res.render('index', {
+        fileList: files
+    });
+};
+
 export const createFolder = (req, res) => {
     console.log("adding folder ", req.body.folderName);
     // if (req.body.currentFolder.length > 0) {
