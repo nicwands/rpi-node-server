@@ -3,11 +3,11 @@ extends layout
 block content
     h1 Nic's Personal File Server
 
-    form(method='post' action='/upload' enctype='multipart/form-data')
-        input(class="input-file" type='file' name='fileUploaded' id="fileUploaded" onchange="form.submit()")
-        label(for="fileUploaded")
-            div(class="add-file-icon-wrap")
-                i(class="gg-file-add")
+
+    input(class="input-file" type='file' name='fileUpload' id="fileUpload")
+    label(for="fileUpload")
+        div(class="add-file-icon-wrap")
+            i(class="gg-file-add")
 
     div(class="file-list")
         each val in fileList
@@ -21,9 +21,7 @@ block content
                         //div(class="icon-wrap")
                         //    a(href='/delete/')
                         //        i(class="gg-close")
-                        form(method='post' action='/delete' enctype='application/x-www-form-urlencoded')
-                            input(type="hidden" name="file" value=val)
-                            input(type='submit' value="X")
+                        input(type='button' value="X" id=val onclick="sendDeleteFile('" + val + "')")
                     else if !val.includes('.')
                         i(class="gg-folder folder-icon")
                         p= val
@@ -34,11 +32,44 @@ block content
                         p= val
                         a(href=val download)
                             i(class="gg-software-download")
-                        form(method='post' action='/delete' enctype='application/x-www-form-urlencoded')
-                            input(type="hidden" name="file" value=val)
-                            input(type='submit' value="X")
+                        input(type='button' value="X" id=val onclick="sendDeleteFile('" + val + "')")
 
-    form(method='post' action='/folder/create' enctype='application/x-www-form-urlencoded')
-        input(type="hidden" name="currentFolder" value="Pictures")
-        input(type='text' name='folderName')
-        input(type='submit')
+
+    input(type="hidden" name="currentFolder" id='current' value="Pictures")
+    input(type='text' name='folderName' id='folderName')
+    input(type='submit' onclick="sendNewFolder()")
+
+    script.
+        document.getElementById('fileUpload').addEventListener('change', event => {
+            sendFileUpload(event);
+        })
+
+        function sendFileUpload(e) {
+            const files = e.target.files;
+            const formData = new FormData();
+            formData.append('file', files[0]);
+
+            uploadFile(formData).then(function (res) {
+                if (res.status === 200) {
+                    location.reload();
+                }
+            })
+        }
+
+        function sendDeleteFile(fileName) {
+            deleteFile(fileName).then(function (res) {
+                if (res.status === 200) {
+                    location.reload();
+                }
+            })
+        }
+
+        function sendNewFolder() {
+            // const current = document.getElementById('current').value;
+            const folderName = document.getElementById('folderName').value;
+            createFolder(folderName).then(function (res) {
+                if (res.status === 200) {
+                    location.reload();
+                }
+            })
+        }

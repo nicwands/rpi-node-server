@@ -4,6 +4,7 @@ import bodyParser from 'body-parser';
 import cookieParser from 'cookie-parser';
 import logger from 'morgan';
 import cors from 'cors';
+import fileUpload from 'express-fileupload';
 
 import routes from './routes';
 
@@ -24,6 +25,7 @@ app.use(cors({
 	],
 	credentials: true
 }));
+app.use(fileUpload());
 
 // Hook up all routes
 app.use('/', routes);

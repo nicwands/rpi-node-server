@@ -3,14 +3,12 @@ const router = express.Router();
 
 import indexRouter from './indexRouter';
 import loginRouter from './loginRouter';
-import uploadRouter from './uploadRouter';
-import deleteRouter from './deleteRouter';
+import fileRouter from './fileRouter';
 import folderRouter from './folderRouter';
 
 router.use('/', indexRouter);
 router.use('/login', loginRouter);
-router.use('/upload', uploadRouter);
-router.use('/delete', deleteRouter);
+router.use('/file', fileRouter);
 router.use('/folder', folderRouter);
 
 export default router;
