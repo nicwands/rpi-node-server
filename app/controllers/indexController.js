@@ -9,7 +9,6 @@ export const getIndex = (req, res) => {
 
     for (let i = 0; i < cleanFiles.length; i++) {
         let tempObj = {};
-        console.log("type:: ", typeof cleanFiles[i]);
 
         tempObj['name'] = cleanFiles[i];
         tempObj['path'] = cleanFiles[i];

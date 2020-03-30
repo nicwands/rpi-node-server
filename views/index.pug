@@ -11,7 +11,6 @@ block content
 
     div(class="file-list")
         each val in fileList
-            -console.log(val.name.split('.').pop().toLowerCase());
             div(class="file-flex")
                 if ["jpg", "png", "svg", "jpeg", "gif"].includes(val.name.split('.').pop().toLowerCase())
                     img(src=val.path class="file-thumbnail")
@@ -36,8 +35,6 @@ block content
                         i(class="gg-software-download")
                     input(type='button' value="X" id=val.name onclick="sendDeleteFile('" + val.path + "')")
 
-
-    input(type="hidden" name="currentFolder" id='current' value="Pictures")
     input(type='text' name='folderName' id='folderName')
     input(type='submit' onclick="sendNewFolder()")
 
