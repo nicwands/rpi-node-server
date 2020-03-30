@@ -1,5 +1,5 @@
 function getToken(email, password) {
-    return fetch("http://localhost:3000/login", {
+    return fetch("/login", {
         method: 'POST',
         headers: {
             'Authorization': 'Basic ' + btoa(email + ":" + password)
@@ -15,7 +15,7 @@ function getToken(email, password) {
 }
 
 function uploadFile(file) {
-    return fetch(`http://localhost:3000/file/upload`, {
+    return fetch(`/file/upload`, {
         method: 'POST',
         credentials: 'include',
         body: file
@@ -29,7 +29,7 @@ function uploadFile(file) {
 }
 
 function deleteFile(fileName) {
-    return fetch(`http://localhost:3000/file/delete`, {
+    return fetch(`/file/delete`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -48,7 +48,7 @@ function deleteFile(fileName) {
 }
 
 function createFolder(folderName) {
-    return fetch(`http://localhost:3000/folder/create`, {
+    return fetch(`/folder/create`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -67,7 +67,7 @@ function createFolder(folderName) {
 }
 
 function deleteFolder(folderName) {
-    return fetch(`http://localhost:3000/folder/delete`, {
+    return fetch(`/folder/delete`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'

@@ -26,7 +26,7 @@ block content
                     i(class="gg-folder folder-icon")
                     p= val.name
                     //input(type="submit" value="open" id=val onclick="sendOpenFolder('" + val + "')")
-                    a(href="http://localhost:3000/folder/open/" + val.path) open
+                    a(href="/folder/open/" + val.path) open
                     input(type="submit" value="X" id=val.name onclick="sendDeleteFolder('" + val.path + "')")
                 else
                     include file-icons
