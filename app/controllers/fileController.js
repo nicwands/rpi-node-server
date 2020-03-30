@@ -2,8 +2,6 @@ import path from "path";
 import fs from 'fs';
 import appRoot from 'app-root-path';
 
-
-
 export const uploadFile = (req, res) => {
     console.log(req.files.file.name);
     const file = req.files.file;

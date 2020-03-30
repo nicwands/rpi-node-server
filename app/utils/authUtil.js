@@ -39,6 +39,9 @@ export const validateLogin = async (email, password) => {
     const comparePasswords = new Promise((resolve, reject) => {
         if (email === process.env.USER_EMAIL && password === process.env.PASSWORD) {
             jwt.sign({email}, process.env.SECRET_KEY, (err, token) => {
+                if (err) {
+                    resolve(err);
+                }
                 resolve(token);
             });
         } else {

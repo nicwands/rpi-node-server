@@ -9,7 +9,7 @@ export const validate = async (req, res) => {
             if (returned !== '401') {
                 console.log("token: ", returned);
                 res.cookie('access_token', returned, {
-                    maxAge: 21600,
+                    maxAge: 86400000,
                     httpOnly: true
                 });
                 res.sendStatus(200);
