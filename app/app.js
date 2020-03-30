@@ -20,8 +20,9 @@ app.use(express.static('public'));
 app.use(cors({
 	origin: [
 		`${process.env.FRONT_URL}`,
-		'http://localhost:3000/login',
-		'http://localhost:3000/token'
+		'http://localhost:3000/',
+		'http://10.0.0.79/',
+		'http://10.0.0.79:3000/'
 	],
 	credentials: true
 }));
