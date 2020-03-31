@@ -4,3 +4,4 @@ uploads/*
 !uploads/.gitkeep
 .env
 dist/
+.idea/

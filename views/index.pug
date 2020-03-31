@@ -16,7 +16,7 @@ block content
             each val in fileList
                 if !val.name.includes('.')
                     div(class="folder-container")
-                        a(class="folder-link" href="/folder/open/" + val.path)
+                        a(class="folder-link" href="/" + val.path)
                             div(class="interior-container")
                                 i(class="gg-folder folder-icon")
                                 p(class="foldername")=val.name

@@ -4,7 +4,6 @@ import appRoot from 'app-root-path';
 
 export const uploadFile = (req, res) => {
     console.log(req.files.file.name);
-    console.log("url:: ", req.get('origin'));
     const file = req.files.file;
     const path = appRoot + "/uploads/" + file.name;
 
