@@ -9,7 +9,7 @@ export const verifyToken = async (req, res, next) => {
         }
         const decrypt = await jwt.verify(token, process.env.SECRET_KEY);
         req.user = {
-            email: decrypt.email,
+            username: decrypt.username,
             password: decrypt.password,
         };
         next();
@@ -24,7 +24,7 @@ export const decodeClientAuth = (req) => {
         let buff = Buffer.from(authHeader[1], 'base64');
         let creds = buff.toString('ascii').split(":");
         const user = {
-            email: creds[0],
+            username: creds[0],
             password: creds[1]
         };
         // const domain = user.email.split("@");
@@ -37,7 +37,7 @@ export const decodeClientAuth = (req) => {
 
 export const validateLogin = async (email, password) => {
     const comparePasswords = new Promise((resolve, reject) => {
-        if (email === process.env.USER_EMAIL && password === process.env.PASSWORD) {
+        if (email === process.env.USERNAME && password === process.env.PASSWORD) {
             jwt.sign({email}, process.env.SECRET_KEY, (err, token) => {
                 if (err) {
                     resolve(err);

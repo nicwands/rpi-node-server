@@ -1,8 +1,8 @@
-function getToken(email, password) {
+function getToken(username, password) {
     return fetch("/login", {
         method: 'POST',
         headers: {
-            'Authorization': 'Basic ' + btoa(email + ":" + password)
+            'Authorization': 'Basic ' + btoa(username + ":" + password)
         },
         credentials: 'include'
     })

@@ -1,17 +1,33 @@
 extends layout
 
 block content
-    input(type="text" id="email" placeholder="email")
-    input(type="password" id="password" placeholder="password")
-    button(onclick="sendRequest()") login
-    p(class="login-error" id="error") Invalid login attempt
+    div(class="login-container")
+        div(class="box-container")
+            div(class="logo-wrap")
+                img(class="login-logo" src="/images/logo.png" alt="nicwands")
+            div(class="login-form-wrap")
+                h1(class="login-header") My Cloud
+                i(class="gg-profile user-icon")
+                input(class="login-input" type="text" id="username" placeholder="Username" autocomplete="off")
+                i(class="gg-lock user-icon" id="lock-icon")
+                input(class="login-input" type="password" id="password" placeholder="Password")
+                button(class="login-submit" onclick="sendRequest()") Sign in
+                p(class="login-error" id="error") Invalid username/password
 
     script.
+        document.getElementById('password').addEventListener('keypress', enterSubmit)
+
+        function enterSubmit(e) {
+            console.log(e);
+            if (e.key === "Enter") {
+                sendRequest();
+            }
+        }
+
         function sendRequest() {
-            const email = document.getElementById('email').value;
+            const username = document.getElementById('username').value;
             const password = document.getElementById('password').value;
-            getToken(email, password).then(function (res) {
-                console.log("status", res.status);
+            getToken(username, password).then(function (res) {
                 if (res.status === 200) {
                     location.reload();
                 } else {

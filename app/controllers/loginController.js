@@ -5,7 +5,7 @@ export const validate = async (req, res) => {
     if (clientAuth === '403') {
         res.sendStatus(403);
     } else {
-        validateLogin(clientAuth.email, clientAuth.password).then((returned) => {
+        validateLogin(clientAuth.username, clientAuth.password).then((returned) => {
             if (returned !== '401') {
                 console.log("token: ", returned);
                 res.cookie('access_token', returned, {
