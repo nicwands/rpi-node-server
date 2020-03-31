@@ -4,15 +4,14 @@ block content
     div(class="app-container")
         div(class="top-bar")
             h1(class="title") My Cloud
-            div
-                input(class="input-file" type='file' name='fileUpload' id="fileUpload")
-                label(for="fileUpload")
-                    div(class="add-file-icon-wrap")
-                        i(class="gg-file-add")
-                input(type='text' name='folderName' id='folderName')
-                input(type='submit' onclick="sendNewFolder()")
 
-        h1(class="header") Folders
+        div(class="add-input-container")
+            h1(class="header") Folders
+            i(class="gg-folder-add add-folder-icon" id="addFolderIcon")
+            div(class="folder-modal" id="folderModal")
+                i(class="gg-close" id="modalClose")
+                input(class="folder-name-input" type='text' name='folderName' id='folderName' placeholder="Name" autocomplete="off")
+                input(class="folder-name-submit" type='submit' value="->" onclick="sendNewFolder()")
         div(class="folder-list")
             each val in fileList
                 if !val.name.includes('.')
@@ -24,7 +23,12 @@ block content
                         div(class="folder-close" id=val.name onclick="sendDeleteFolder('" + val.path + "')")
                             i(class='gg-close delete-icon')
 
-        h1(class="header") Files
+        div(class="add-input-container")
+            h1(class="header") Files
+            div(class="add-file")
+                input(class="input-file" type='file' name='fileUpload' id="fileUpload")
+                label(for="fileUpload")
+                    i(class="gg-file-add")
         div(class="file-list")
             each val in fileList
                 if val.name.includes('.')
@@ -53,45 +57,5 @@ block content
             p © 2020 Nicolas Wands. All rights reserved
             a(href="https://github.com/nicwands/rpi-node-server" target="_blank") Github
 
-    script.
-        document.getElementById('fileUpload').addEventListener('change', event => {
-            sendFileUpload(event);
-        })
-
-        function sendFileUpload(e) {
-            const files = e.target.files;
-            const formData = new FormData();
-            formData.append('file', files[0]);
-
-            uploadFile(formData).then(function (res) {
-                if (res.status === 200) {
-                    location.reload();
-                }
-            })
-        }
-
-        function sendDeleteFile(fileName) {
-            deleteFile(fileName).then(function (res) {
-                if (res.status === 200) {
-                    location.reload();
-                }
-            })
-        }
-
-        function sendNewFolder() {
-            // const current = document.getElementById('current').value;
-            const folderName = document.getElementById('folderName').value;
-            createFolder(folderName).then(function (res) {
-                if (res.status === 200) {
-                    location.reload();
-                }
-            })
-        }
-
-        function sendDeleteFolder(folderName) {
-            deleteFolder(folderName).then(function (res) {
-                if (res.status === 200) {
-                    location.reload();
-                }
-            })
-        }
+    script(type='text/javascript' src='/js/appFunctions.js')
+    script(type='text/javascript' src='/js/style.js')
