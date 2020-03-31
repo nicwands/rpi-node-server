@@ -4,42 +4,54 @@ block content
     div(class="app-container")
         div(class="top-bar")
             h1(class="title") My Cloud
+            div
+                input(class="input-file" type='file' name='fileUpload' id="fileUpload")
+                label(for="fileUpload")
+                    div(class="add-file-icon-wrap")
+                        i(class="gg-file-add")
+                input(type='text' name='folderName' id='folderName')
+                input(type='submit' onclick="sendNewFolder()")
 
-        input(class="input-file" type='file' name='fileUpload' id="fileUpload")
-        label(for="fileUpload")
-            div(class="add-file-icon-wrap")
-                i(class="gg-file-add")
+        h1(class="header") Folders
+        div(class="folder-list")
+            each val in fileList
+                if !val.name.includes('.')
+                    div(class="folder-container")
+                        a(class="folder-link" href="/folder/open/" + val.path)
+                            div(class="interior-container")
+                                i(class="gg-folder folder-icon")
+                                p(class="foldername")=val.name
+                        div(class="folder-close" id=val.name onclick="sendDeleteFolder('" + val.path + "')")
+                            i(class='gg-close delete-icon')
 
+        h1(class="header") Files
         div(class="file-list")
             each val in fileList
-                div(class="file-container")
-                    if ["jpg", "png", "svg", "jpeg", "gif"].includes(val.name.split('.').pop().toLowerCase())
-                        div(class="file-image-container")
-                            img(src=val.path class="file-thumbnail")
-                        p= val.name
-                        div(class="dload-delete-container")
-                            a(href=val.path download)
-                                div(class="dload-container")
-                                    i(class="gg-software-download dload-icon")
-                            div(class="delete-container" id=val.name onclick="sendDeleteFile('" + val.path + "')")
-                                i(class='gg-close delete-icon')
-                    else if !val.name.includes('.')
-                        i(class="gg-folder folder-icon")
-                        p= val.name
-                        a(href="/folder/open/" + val.path) open
-                        i(class='gg-close' id=val.name onclick="sendDeleteFile('" + val.path + "')")
-                    else
-                        include file-icons
-                        p= val.name
-                        div(class="dload-delete-container")
-                            div(class="dload-container")
+                if val.name.includes('.')
+                    div(class="file-container")
+                        if ["jpg", "png", "svg", "jpeg", "gif"].includes(val.name.split('.').pop().toLowerCase())
+                            div(class="file-image-container")
+                                img(src=val.path class="file-thumbnail")
+                            p(class="filename")=val.name
+                            div(class="dload-delete-container")
                                 a(href=val.path download)
-                                    i(class="gg-software-download dload-icon")
-                            div(class="delete-container")
-                                i(class='gg-close delete-icon' id=val.name onclick="sendDeleteFile('" + val.path + "')")
+                                    div(class="dload-container")
+                                        i(class="gg-software-download dload-icon")
+                                div(class="delete-container" id=val.name onclick="sendDeleteFile('" + val.path + "')")
+                                    i(class='gg-close delete-icon')
+                        else
+                            include file-icons
+                            p(class="filename")=val.name
+                            div(class="dload-delete-container")
+                                a(href=val.path download)
+                                    div(class="dload-container")
+                                        i(class="gg-software-download dload-icon")
+                                div(class="delete-container" id=val.name onclick="sendDeleteFile('" + val.path + "')")
+                                    i(class='gg-close delete-icon')
 
-        input(type='text' name='folderName' id='folderName')
-        input(type='submit' onclick="sendNewFolder()")
+        div(class="footer")
+            p © 2020 Nicolas Wands. All rights reserved
+            a(href="https://github.com/nicwands/rpi-node-server" target="_blank") Github
 
     script.
         document.getElementById('fileUpload').addEventListener('change', event => {

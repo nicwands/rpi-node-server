@@ -16,6 +16,15 @@ body {
     padding: 0;
 }
 
+a {
+    text-decoration: none;
+    color: #C1314D;
+}
+
+a:visited {
+    color: #C1314D;
+}
+
 .app-container {
     padding: 1em 5em 0 5em;
 }
@@ -24,6 +33,11 @@ body {
     width: 100%;
     padding-bottom: 0.5em;
     border-bottom: 1px solid #707070;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2em;
 }
 
 .title {
@@ -32,11 +46,81 @@ body {
     margin: 0;
 }
 
+.header {
+    font-size: 1.25em;
+    font-weight: 600;
+    color: #707070;
+    margin-bottom: 1em;
+}
+
+.folder-list {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+
+.folder-container {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    border-radius: 10px;
+    width: 15em;
+    height: 3em;
+    margin-bottom: 1em;
+    margin-right: 20px;
+    overflow: hidden;
+}
+
+.folder-link {
+    color: #000;
+    width: 85%;
+    height: 100%;
+}
+
+.folder-link:visited {
+    color: #000;
+}
+
+.interior-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.folder-icon {
+    margin: 0 5%;
+}
+
+.foldername {
+    text-align: left;
+    font-weight: 600;
+    width: 70%
+}
+
+.folder-close {
+    width: 15%;
+    height: 100%;
+    background: #FAB5C3;
+    position: relative;
+    z-index: 99;
+}
+
+.folder-close:hover {
+    background: #f28da3;
+}
+
 .file-list {
     width: 100%;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+    margin-bottom: 3em;
 }
 
 /*.file-list::after {*/
@@ -46,7 +130,7 @@ body {
 
 .file-container {
     width: 14em;
-    height: 20em;
+    height: 19em;
     box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
     margin: 0 0 2% 0;
     border-radius: 20px;
@@ -80,15 +164,9 @@ body {
     height: 100%;
 }
 
-.folder-icon {
-    width: 5%;
-    margin: 0 2.5%;
-    height: 1.5em;
-}
-
-.file-container > p {
-    width: 80%;
+.filename {
     text-align: center;
+    font-weight: 600;
 }
 
 .dload-delete-container {
@@ -160,14 +238,14 @@ body {
     color: #707070;
 }
 
-.add-file-icon-wrap {
-    margin: 3em auto;
-    width: 3em;
-}
-
-.gg-file-add {
-    width: 3em;
-    height: 3em;
+.footer {
+    width: 100%;
+    border-top: 1px solid #707070;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
 }
 
 /*
