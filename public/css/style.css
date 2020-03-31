@@ -16,33 +16,68 @@ body {
     padding: 0;
 }
 
-h1 {
-    text-align: center;
+.app-container {
+    padding: 1em 5em 0 5em;
+}
+
+.top-bar {
+    width: 100%;
+    padding-bottom: 0.5em;
+    border-bottom: 1px solid #707070;
+}
+
+.title {
+    font-size: 2.5em;
+    font-weight: 500;
+    margin: 0;
 }
 
 .file-list {
-    margin: auto;
-    width: 50%;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
 }
 
-.file-flex {
-    display: flex;
-    flex-wrap: nowrap;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
-    height: 4em;
+/*.file-list::after {*/
+/*    content: "";*/
+/*    flex: auto;*/
+/*}*/
+
+.file-container {
+    width: 14em;
+    height: 20em;
     box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
     margin: 0 0 2% 0;
-    padding: 10px;
+    border-radius: 20px;
+    position: relative;
+    overflow: hidden;
+    padding-top: 10px;
+}
+
+.file-image-container {
+    width: 12em;
+    height: 12em;
+    margin-left: 1em;
+    position: relative;
 }
 
 .file-thumbnail {
-    width: 10%;
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
  }
 
 .file-icon-wrap {
-    width: 10%;
+    width: 12em;
+    height: 12em;
+    margin-left: 1em;
+}
+
+.file-icon {
+    width: 75%;
+    height: 100%;
 }
 
 .folder-icon {
@@ -51,14 +86,59 @@ h1 {
     height: 1.5em;
 }
 
-.icon-wrap {
-    width: 5%;
+.file-container > p {
+    width: 80%;
+    text-align: center;
 }
 
-.file-flex > p {
-    width: 80%;
-    text-align: left;
-    padding-left: 10px;
+.dload-delete-container {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 3em;
+    box-sizing: border-box;
+}
+
+.dload-container {
+    background: #B2CFED;
+    width: 50%;
+    height: 3em;
+    display: inline-block;
+    cursor: pointer;
+    position: relative;
+}
+
+.dload-container:hover {
+    background: #8bb7e4;
+}
+
+.dload-icon {
+    color: #477BB3;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -80%);
+}
+
+.delete-container {
+    background: #FAB5C3;
+    width: 50%;
+    height: 3em;
+    display: inline-block;
+    cursor: pointer;
+    position: relative;
+}
+
+.delete-container:hover {
+    background: #f28da3;
+}
+
+.delete-icon {
+    color: #C1314D;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .input-file {
@@ -118,7 +198,7 @@ h1 {
     background-color: #fff;
     border: 3px solid #000;
     border-radius: 20px;
-    box-shadow: 0px 0px 4px 1px rgba(156,154,156,1);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
     position: relative;
 }
 
@@ -134,7 +214,7 @@ h1 {
     border: 3px solid #C1314D;
     border-radius: 20px;
     padding: 2.75em 2em;
-    box-shadow: 0px 0px 4px 1px rgba(156,154,156,1);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
     z-index: 2;
 }
 
@@ -199,7 +279,5 @@ h1 {
 }
 
 @media only screen and (max-width: 1000px) {
-    .file-list {
-        width: 90%;
-    }
+
 }
