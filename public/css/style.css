@@ -39,6 +39,7 @@ input:focus {
     padding-bottom: 0.5em;
     border-bottom: 1px solid #707070;
     display: flex;
+    position: relative;
     flex-wrap: nowrap;
     justify-content: space-between;
     align-items: center;
@@ -51,6 +52,26 @@ input:focus {
     margin: 0;
 }
 
+.progress-container {
+    display: none;
+    width: 30%;
+    height: 3px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    border-radius: 10px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 99;
+    background: #95c4f3;
+}
+
+.bar {
+    width: 0;
+    height: 3px;
+    background: #247fcc;
+}
+
 .breadcrumb-container {
     margin-bottom: 1em;
     margin-left: -5px;
@@ -58,7 +79,7 @@ input:focus {
 
 .breadcrumb {
     color: #000;
-    margin-right: 10px;
+    margin-right: 2px;
     padding: 5px;
     border-radius: 5px;
     display: inline;
@@ -72,6 +93,12 @@ input:focus {
     color: #000;
 }
 
+.breadcrumb-separator {
+    color: #000;
+    padding: 5px 0;
+    display: inline;
+}
+
 .add-input-container {
     margin-bottom: 1em;
 }
@@ -79,7 +106,7 @@ input:focus {
 .header {
     font-size: 1.25em;
     font-weight: 600;
-    color: #707070;
+    color: #434343;
     margin: 0;
     display: inline-block;
     vertical-align: top;
@@ -216,11 +243,6 @@ input:focus {
     justify-content: space-between;
     margin-bottom: 3em;
 }
-
-/*.file-list::after {*/
-/*    content: "";*/
-/*    flex: auto;*/
-/*}*/
 
 .file-container {
     width: 14em;
@@ -433,5 +455,35 @@ input:focus {
 }
 
 @media only screen and (max-width: 1000px) {
+    .file-container {
+        width: 25em;
+        height: 36em;
+        margin-top: 2em;
+    }
 
+    .file-image-container {
+        width: 23em;
+        height: 23em;
+    }
+
+    .file-icon-wrap {
+        width: 23em;
+        height: 23em;
+    }
+
+    .filename {
+        font-size: 2em;
+    }
+
+    .dload-delete-container {
+        height: 6em;
+    }
+
+    .dload-container {
+        height: 6em;
+    }
+
+    .delete-container {
+        height: 6em;
+    }
 }

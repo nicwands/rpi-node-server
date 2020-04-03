@@ -4,19 +4,24 @@ block content
     div(class="app-container")
         div(class="top-bar")
             h1(class="title") My Cloud
+            div(class="progress-container" id="progressContainer")
+                div(class="bar" id="progress")
+
+        //p(id="progress") 0
 
         div(class="breadcrumb-container")
-            a(class="breadcrumb" href="/") My Cloud
-            p(class="breadcrumb") >
+            a(class="breadcrumb" href="/") Home
+            if path !== ""
+                p(class="breadcrumb-separator") >
             - let pathSplit = path.split("/");
             - let pathList = pathSplit.filter(function(path) { return path !== "" });
-            - pathList.pop();
-            each val in pathList
+            - let link = "/";
+            each val, index in pathList
                 - let valPath = pathList.slice(0, pathList.indexOf(val) + 1);
-                - let link = "/";
-                - for (let i = 0; i < valPath.length; i++) { link += valPath[i] + "/" };
+                - link += valPath[index] + "/"
                 a(class="breadcrumb" href=link)= val
-                p(class="breadcrumb") >
+                if index < pathList.length -1
+                    p(class="breadcrumb-separator") >
 
         div(class="add-input-container")
             h1(class="header") Folders

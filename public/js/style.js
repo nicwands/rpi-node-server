@@ -15,3 +15,4 @@ function closeFolderModal() {
 
 let closeFolderIcon = document.getElementById('modalClose');
 closeFolderIcon.addEventListener('click', closeFolderModal);
+
