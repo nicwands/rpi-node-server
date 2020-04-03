@@ -51,6 +51,27 @@ input:focus {
     margin: 0;
 }
 
+.breadcrumb-container {
+    margin-bottom: 1em;
+    margin-left: -5px;
+}
+
+.breadcrumb {
+    color: #000;
+    margin-right: 10px;
+    padding: 5px;
+    border-radius: 5px;
+    display: inline;
+}
+
+.breadcrumb:hover {
+    background: #eeeeee;
+}
+
+.breadcrumb:visited {
+    color: #000;
+}
+
 .add-input-container {
     margin-bottom: 1em;
 }

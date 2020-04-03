@@ -5,15 +5,18 @@ block content
         div(class="top-bar")
             h1(class="title") My Cloud
 
-        a(href="/") My Cloud
-        - let pathSplit = path.split("/");
-        - let pathList = pathSplit.filter(function(path) { return path !== "" });
-        - pathList.pop();
-        each val in pathList
-            - let valPath = pathList.slice(0, pathList.indexOf(val) + 1);
-            - let link = "/";
-            - for (let i = 0; i < valPath.length; i++) { link += valPath[i] + "/" };
-            a(href=link)= val
+        div(class="breadcrumb-container")
+            a(class="breadcrumb" href="/") My Cloud
+            p(class="breadcrumb") >
+            - let pathSplit = path.split("/");
+            - let pathList = pathSplit.filter(function(path) { return path !== "" });
+            - pathList.pop();
+            each val in pathList
+                - let valPath = pathList.slice(0, pathList.indexOf(val) + 1);
+                - let link = "/";
+                - for (let i = 0; i < valPath.length; i++) { link += valPath[i] + "/" };
+                a(class="breadcrumb" href=link)= val
+                p(class="breadcrumb") >
 
         div(class="add-input-container")
             h1(class="header") Folders
