@@ -47,7 +47,7 @@ function deleteFile(fileName) {
         })
 }
 
-function createFolder(folderName) {
+function createFolder(folderName, folderParent) {
     return fetch(`/folder/create`, {
         method: 'POST',
         headers: {
@@ -55,7 +55,8 @@ function createFolder(folderName) {
         },
         credentials: 'include',
         body: JSON.stringify({
-            folderName
+            folderName,
+            folderParent
         })
     })
         .then(response => {
@@ -66,7 +67,7 @@ function createFolder(folderName) {
         })
 }
 
-function deleteFolder(folderName) {
+function deleteFolder(id) {
     return fetch(`/folder/delete`, {
         method: 'POST',
         headers: {
@@ -74,7 +75,7 @@ function deleteFolder(folderName) {
         },
         credentials: 'include',
         body: JSON.stringify({
-            folderName
+            id
         })
     })
         .then(response => {

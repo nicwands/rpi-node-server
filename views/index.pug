@@ -10,47 +10,47 @@ block content
             i(class="gg-folder-add add-folder-icon" id="addFolderIcon")
             div(class="folder-modal" id="folderModal")
                 i(class="gg-close" id="modalClose")
-                input(class="folder-name-input" type='text' name='folderName' id='folderName' placeholder="Name" autocomplete="off")
+                input(class="folder-name-input" type='text' name='folderName' id='folderName' data-parent=folders[0].parent placeholder="Name" autocomplete="off")
                 input(class="folder-name-submit" type='submit' value="->" onclick="sendNewFolder()")
         div(class="folder-list")
-            each val in fileList
+            each val in folders
                 if !val.name.includes('.')
                     div(class="folder-container")
-                        a(class="folder-link" href="/" + val.path)
+                        a(class="folder-link" href="/" + val.name)
                             div(class="interior-container")
                                 i(class="gg-folder folder-icon")
                                 p(class="foldername")=val.name
-                        div(class="folder-close" id=val.name onclick="sendDeleteFolder('" + val.path + "')")
+                        div(class="folder-close" id=val.name onclick="sendDeleteFolder('" + val.id + "')")
                             i(class='gg-close delete-icon')
 
         div(class="add-input-container")
             h1(class="header") Files
             div(class="add-file")
-                input(class="input-file" type='file' name='fileUpload' id="fileUpload")
+                input(class="input-file" type='file' name='fileUpload' id="fileUpload" data-directory=files[0].directory_id)
                 label(for="fileUpload")
                     i(class="gg-file-add")
         div(class="file-list")
-            each val in fileList
-                if val.name.includes('.')
+            each val in files
+                if val.file_name.includes('.')
                     div(class="file-container")
-                        if ["jpg", "png", "svg", "jpeg", "gif"].includes(val.name.split('.').pop().toLowerCase())
+                        if ["jpg", "png", "svg", "jpeg", "gif"].includes(val.file_name.split('.').pop().toLowerCase())
                             div(class="file-image-container")
-                                img(src=val.path class="file-thumbnail")
-                            p(class="filename")=val.name
+                                img(src=val.file_name class="file-thumbnail")
+                            p(class="filename")=val.file_name
                             div(class="dload-delete-container")
-                                a(href=val.path download)
+                                a(href=val.file_name download)
                                     div(class="dload-container")
                                         i(class="gg-software-download dload-icon")
-                                div(class="delete-container" id=val.name onclick="sendDeleteFile('" + val.path + "')")
+                                div(class="delete-container" id=val.file_name onclick="sendDeleteFile('" + val.file_name + "')")
                                     i(class='gg-close delete-icon')
                         else
                             include file-icons
-                            p(class="filename")=val.name
+                            p(class="filename")=val.file_name
                             div(class="dload-delete-container")
-                                a(href=val.path download)
+                                a(href=val.file_name download)
                                     div(class="dload-container")
                                         i(class="gg-software-download dload-icon")
-                                div(class="delete-container" id=val.name onclick="sendDeleteFile('" + val.path + "')")
+                                div(class="delete-container" id=val.file_name onclick="sendDeleteFile('" + val.file_name + "')")
                                     i(class='gg-close delete-icon')
 
         div(class="footer")

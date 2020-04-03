@@ -1,37 +1,35 @@
-import fs from 'fs';
+// import fs from 'fs';
+import con from "../utils/db";
 
 export const getIndex = (req, res) => {
-    let files = [];
-    let fileNames;
-    if (req.params.folderName) {
-        fileNames = fs.readdirSync('./uploads/' + req.params.folderName);
+    // let files = [];
 
-        for (let i = 0; i < fileNames.length; i++) {
-            let tempObj = {};
-            const filePath = ("/" + req.params.folderName + "/" + fileNames[i]);
-
-            tempObj['name'] = fileNames[i];
-            tempObj['path'] = filePath;
-
-            files.push(tempObj);
-        }
-    } else {
-        const fileNames = fs.readdirSync('./uploads');
-        const cleanFiles = fileNames.filter((file) => {
-            return file !== ".gitkeep"
+    const queryString = 'SELECT * FROM file\n' +
+        'JOIN directory on directory.id = file.directory_id\n' +
+        'WHERE directory_id = ?;';
+    con.query(queryString, [1], function (err, rows, fields) {
+        let files = rows;
+        con.query("SELECT * from directory where parent is ?", [rows[0].parent], (err, rows, fields) => {
+            res.render('index', {
+                files: files,
+                folders: rows
+            });
         });
 
-        for (let i = 0; i < cleanFiles.length; i++) {
-            let tempObj = {};
-
-            tempObj['name'] = cleanFiles[i];
-            tempObj['path'] = cleanFiles[i];
-
-            files.push(tempObj);
-        }
-    }
-
-    res.render('index', {
-        fileList: files
+        // let array = [];
+        // for (let i = 0; i < rows.length; i++) {
+        //     array.push(rows[i].name);
+        // }
+        //
+        // for (let i = 0; i < array.length; i++) {
+        //     let tempObj = {};
+        //
+        //     tempObj['name'] = array[i];
+        //     tempObj['path'] = array[i];
+        //
+        //     console.log({tempObj});
+        //
+        //     files.push(tempObj);
+        // }
     });
 };
