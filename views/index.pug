@@ -5,18 +5,28 @@ block content
         div(class="top-bar")
             h1(class="title") My Cloud
 
+        a(href="/") My Cloud
+        - let pathSplit = path.split("/");
+        - let pathList = pathSplit.filter(function(path) { return path !== "" });
+        - pathList.pop();
+        each val in pathList
+            - let valPath = pathList.slice(0, pathList.indexOf(val) + 1);
+            - let link = "/";
+            - for (let i = 0; i < valPath.length; i++) { link += valPath[i] + "/" };
+            a(href=link)= val
+
         div(class="add-input-container")
             h1(class="header") Folders
             i(class="gg-folder-add add-folder-icon" id="addFolderIcon")
             div(class="folder-modal" id="folderModal")
                 i(class="gg-close" id="modalClose")
-                input(class="folder-name-input" type='text' name='folderName' id='folderName' placeholder="Name" autocomplete="off")
+                input(class="folder-name-input" type='text' name='folderName' id='folderName' placeholder="Name" autocomplete="off" data-path=path)
                 input(class="folder-name-submit" type='submit' value="->" onclick="sendNewFolder()")
         div(class="folder-list")
             each val in fileList
                 if !val.name.includes('.')
                     div(class="folder-container")
-                        a(class="folder-link" href="/" + val.path)
+                        a(class="folder-link" href=val.path)
                             div(class="interior-container")
                                 i(class="gg-folder folder-icon")
                                 p(class="foldername")=val.name
@@ -26,7 +36,7 @@ block content
         div(class="add-input-container")
             h1(class="header") Files
             div(class="add-file")
-                input(class="input-file" type='file' name='fileUpload' id="fileUpload")
+                input(class="input-file" type='file' name='fileUpload' id="fileUpload" data-path=path)
                 label(for="fileUpload")
                     i(class="gg-file-add")
         div(class="file-list")

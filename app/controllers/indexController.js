@@ -1,24 +1,24 @@
 import fs from 'fs';
 
 export const getIndex = (req, res) => {
-    let files = [];
+    let fileList = [];
     let fileNames;
-    if (req.params.folderName) {
-        fileNames = fs.readdirSync('./uploads/' + req.params.folderName);
+    if (req.params[0]) {
+        fileNames = fs.readdirSync('./uploads/' + req.params[0]);
 
         for (let i = 0; i < fileNames.length; i++) {
             let tempObj = {};
-            const filePath = ("/" + req.params.folderName + "/" + fileNames[i]);
+            const filePath = ("/" + req.params[0] + "/" + fileNames[i]);
 
             tempObj['name'] = fileNames[i];
             tempObj['path'] = filePath;
 
-            files.push(tempObj);
+            fileList.push(tempObj);
         }
     } else {
         const fileNames = fs.readdirSync('./uploads');
         const cleanFiles = fileNames.filter((file) => {
-            return file !== ".gitkeep"
+            return file !== ".gitkeep" && file !== ".DS_Store";
         });
 
         for (let i = 0; i < cleanFiles.length; i++) {
@@ -27,11 +27,12 @@ export const getIndex = (req, res) => {
             tempObj['name'] = cleanFiles[i];
             tempObj['path'] = cleanFiles[i];
 
-            files.push(tempObj);
+            fileList.push(tempObj);
         }
     }
 
     res.render('index', {
-        fileList: files
+        fileList,
+        path: req.params[0]
     });
 };

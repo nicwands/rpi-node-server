@@ -6,6 +6,7 @@ function sendFileUpload(e) {
     const files = e.target.files;
     const formData = new FormData();
     formData.append('file', files[0]);
+    formData.append('path', e.target.dataset.path);
 
     uploadFile(formData).then(function (res) {
         if (res.status === 200) {
@@ -23,9 +24,11 @@ function sendDeleteFile(fileName) {
 }
 
 function sendNewFolder() {
-    // const current = document.getElementById('current').value;
-    const folderName = document.getElementById('folderName').value;
-    createFolder(folderName).then(function (res) {
+    const folder = document.getElementById('folderName');
+    const folderName = folder.value;
+    const path = folder.dataset.path;
+
+    createFolder(folderName, path).then(function (res) {
         if (res.status === 200) {
             location.reload();
         }

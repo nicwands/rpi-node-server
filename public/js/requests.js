@@ -47,7 +47,7 @@ function deleteFile(fileName) {
         })
 }
 
-function createFolder(folderName) {
+function createFolder(folderName, path) {
     return fetch(`/folder/create`, {
         method: 'POST',
         headers: {
@@ -55,7 +55,8 @@ function createFolder(folderName) {
         },
         credentials: 'include',
         body: JSON.stringify({
-            folderName
+            folderName,
+            path
         })
     })
         .then(response => {

@@ -4,6 +4,6 @@ const router = express.Router();
 import { getIndex } from "../controllers/indexController";
 import { verifyToken } from "../utils/authUtil";
 
-router.get('/:folderName?', verifyToken, getIndex);
+router.get('/*', verifyToken, getIndex);
 
 export default router;

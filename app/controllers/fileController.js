@@ -3,9 +3,8 @@ import fs from 'fs';
 import appRoot from 'app-root-path';
 
 export const uploadFile = (req, res) => {
-    console.log(req.files.file.name);
     const file = req.files.file;
-    const path = appRoot + "/uploads/" + file.name;
+    const path = appRoot + "/uploads/" + req.body.path + file.name;
 
     file.mv(path, (err) => {
         console.error(err);
