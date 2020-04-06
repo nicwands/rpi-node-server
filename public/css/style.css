@@ -252,7 +252,25 @@ input:focus {
     border-radius: 20px;
     position: relative;
     overflow: hidden;
-    padding-top: 10px;
+    padding-top: 15px;
+}
+
+.click-target {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: transparent;
+    z-index: 2;
+}
+
+.click-target + div {
+    transition: ease-in-out all 200ms;
+}
+
+.click-target:hover + div {
+    margin-top: -5px;
 }
 
 .file-image-container {
@@ -292,6 +310,7 @@ input:focus {
     width: 100%;
     height: 3em;
     box-sizing: border-box;
+    z-index: 3;
 }
 
 .dload-container {
@@ -299,7 +318,7 @@ input:focus {
     width: 50%;
     height: 3em;
     display: inline-block;
-    cursor: pointer;
+    cursor: default;
     position: relative;
 }
 
@@ -320,7 +339,6 @@ input:focus {
     width: 50%;
     height: 3em;
     display: inline-block;
-    cursor: pointer;
     position: relative;
 }
 
