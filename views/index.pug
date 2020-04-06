@@ -7,8 +7,6 @@ block content
             div(class="progress-container" id="progressContainer")
                 div(class="bar" id="progress")
 
-        //p(id="progress") 0
-
         div(class="breadcrumb-container")
             a(class="breadcrumb" href="/") Home
             if path !== ""
@@ -51,7 +49,7 @@ block content
             each val in fileList
                 if val.name.includes('.')
                     div(class="file-container")
-                        a(class="click-target" href="/" + val.path target="_blank")
+                        a(class="click-target" href=host + val.path target="_blank")
                         if ["jpg", "png", "svg", "jpeg", "gif"].includes(val.name.split('.').pop().toLowerCase())
                             div(class="file-image-container")
                                 img(src=val.path class="file-thumbnail")
@@ -74,7 +72,8 @@ block content
 
         div(class="footer")
             p © 2020 Nicolas Wands. All rights reserved
-            a(href="https://github.com/nicwands/rpi-node-server" target="_blank") Github
+            a(href="https://github.com/nicwands/rpi-node-server" target="_blank")
+                p Github
 
     script(type='text/javascript' src='/js/appFunctions.js')
     script(type='text/javascript' src='/js/style.js')

@@ -1,0 +1,100 @@
+.app-container {
+    padding: 2em 2em 0 2em;
+}
+
+.top-bar {
+    display: block;
+    padding-bottom: 2em;
+}
+
+.title {
+    text-align: center;
+    font-size: 7em;
+}
+
+.breadcrumb {
+    font-size: 3em;
+}
+
+.breadcrumb-separator {
+    font-size: 3em;
+    color: #707070;
+}
+
+.header {
+    font-size: 4em;
+}
+
+.folder-container {
+    width: 30em;
+    height: 6em;
+}
+
+.foldername {
+    font-size: 2em;
+}
+
+.file-container {
+    width: 27em;
+    height: 38.5em;
+    margin-top: 2em;
+}
+
+.file-image-container {
+    width: 25em;
+    height: 25em;
+}
+
+.file-icon-wrap {
+    width: 25em;
+    height: 25em;
+}
+
+.filename {
+    font-size: 2em;
+}
+
+.dload-delete-container {
+    height: 6em;
+}
+
+.dload-container {
+    height: 6em;
+}
+
+.delete-container {
+    height: 6em;
+}
+
+.footer {
+    display: block;
+}
+
+.footer p {
+    width: 100%;
+    font-size: 2.5em;
+    text-align: center;
+}
+
+.footer a {
+    width: 100%;
+    font-size: 1.5em;
+    text-align: center;
+}
+
+/*
+CSS Icons
+*/
+
+.fi:before {
+    right: 80px
+}
+
+.fi:after {
+    border-width: 80px 0 0 80px;
+}
+
+.fi-content {
+    top: 80px;
+    font-size: 5em;
+}

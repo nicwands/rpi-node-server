@@ -471,37 +471,3 @@ input:focus {
     margin: 1.25em 0 0 0;
     float: left;
 }
-
-@media only screen and (max-width: 1000px) {
-    .file-container {
-        width: 25em;
-        height: 36em;
-        margin-top: 2em;
-    }
-
-    .file-image-container {
-        width: 23em;
-        height: 23em;
-    }
-
-    .file-icon-wrap {
-        width: 23em;
-        height: 23em;
-    }
-
-    .filename {
-        font-size: 2em;
-    }
-
-    .dload-delete-container {
-        height: 6em;
-    }
-
-    .dload-container {
-        height: 6em;
-    }
-
-    .delete-container {
-        height: 6em;
-    }
-}

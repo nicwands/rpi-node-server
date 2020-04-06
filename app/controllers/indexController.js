@@ -33,6 +33,7 @@ export const getIndex = (req, res) => {
 
     res.render('index', {
         fileList,
-        path: req.params[0]
+        path: req.params[0],
+        host: process.env.FRONT_URL
     });
 };
