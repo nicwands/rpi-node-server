@@ -23,7 +23,7 @@ block content
 
         div(class="add-input-container")
             h1(class="header") Folders
-            i(class="gg-folder-add add-folder-icon" id="addFolderIcon")
+            img(class="add-folder-icon" id="addFolderIcon" src="/images/icons/icons-04.svg")
             div(class="folder-modal" id="folderModal")
                 i(class="gg-close" id="modalClose")
                 input(class="folder-name-input" type='text' name='folderName' id='folderName' placeholder="Name" autocomplete="off" data-path=path)
@@ -34,17 +34,17 @@ block content
                     div(class="folder-container")
                         a(class="folder-link" href=val.path)
                             div(class="interior-container")
-                                i(class="gg-folder folder-icon")
+                                img(class="folder-icon" src="/images/icons/icons-03.svg")
                                 p(class="foldername")=val.name
                         div(class="folder-close" id=val.name onclick="sendDeleteFolder('" + val.path + "')")
-                            i(class='gg-close delete-icon')
+                            img(class='delete-icon' src="/images/icons/icons-02.svg")
 
         div(class="add-input-container")
             h1(class="header") Files
             div(class="add-file")
                 input(class="input-file" type='file' name='fileUpload' id="fileUpload" data-path=path)
                 label(for="fileUpload")
-                    i(class="gg-file-add")
+                    img(class="add-file-icon" src="images/icons/icons-05.svg")
         div(class="file-list")
             each val in fileList
                 if val.name.includes('.')
@@ -57,18 +57,18 @@ block content
                             div(class="dload-delete-container")
                                 a(href=val.path download)
                                     div(class="dload-container")
-                                        i(class="gg-software-download dload-icon")
+                                        img(class="dload-icon" src="/images/icons/icons-01.svg")
                                 div(class="delete-container" id=val.name onclick="sendDeleteFile('" + val.path + "')")
-                                    i(class='gg-close delete-icon')
+                                    img(class='gg-close delete-icon' src="/images/icons/icons-02.svg")
                         else
                             include file-icons
                             p(class="filename")=val.name
                             div(class="dload-delete-container")
                                 a(href=val.path download)
                                     div(class="dload-container")
-                                        i(class="gg-software-download dload-icon")
+                                        img(class="dload-icon" src="/images/icons/icons-01.svg")
                                 div(class="delete-container" id=val.name onclick="sendDeleteFile('" + val.path + "')")
-                                    i(class='gg-close delete-icon')
+                                    img(class='gg-close delete-icon' src="/images/icons/icons-02.svg")
 
         div(class="footer")
             p © 2020 Nicolas Wands. All rights reserved

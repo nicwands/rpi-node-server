@@ -98,3 +98,21 @@ CSS Icons
     top: 80px;
     font-size: 5em;
 }
+
+.delete-icon {
+    width: 2em;
+}
+
+.dload-icon {
+    width: 2em;
+}
+
+.add-folder-icon {
+    width: 4em;
+    margin-left: 20px;
+}
+
+.add-file-icon {
+    width: 4em;
+    margin-left: 20px;
+}
