@@ -47,6 +47,7 @@ block content
                     img(class="add-file-icon" src="/images/icons/icons-05.svg")
         div(class="file-list")
             each val in fileList
+                -console.log(host + val.path)
                 if val.name.includes('.')
                     div(class="file-container")
                         a(class="click-target" href=host + val.path target="_blank")

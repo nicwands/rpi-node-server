@@ -1,6 +1,7 @@
 import fs from 'fs';
 
 export const getIndex = (req, res) => {
+    let clientIp = req.connection.remoteAddress;
     let fileList = [];
     let fileNames;
     if (req.params[0]) {
@@ -34,6 +35,6 @@ export const getIndex = (req, res) => {
     res.render('index', {
         fileList,
         path: req.params[0],
-        host: process.env.FRONT_URL
+        host: clientIp.startsWith("10.") ? process.env.LOCAL_IP : process.env.FRONT_URL
     });
 };
