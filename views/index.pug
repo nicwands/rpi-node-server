@@ -25,9 +25,9 @@ block content
             h1(class="header") Folders
             img(class="add-folder-icon" id="addFolderIcon" src="/images/icons/icons-04.svg")
             div(class="folder-modal" id="folderModal")
-                i(class="gg-close" id="modalClose")
+                img(id='modalClose' src="/images/icons/icons-02.svg")
                 input(class="folder-name-input" type='text' name='folderName' id='folderName' placeholder="Name" autocomplete="off" data-path=path)
-                input(class="folder-name-submit" type='submit' value="->" onclick="sendNewFolder()")
+                img(class="folder-name-submit" src='/images/icons/icons-06.svg' onclick="sendNewFolder()")
         div(class="folder-list")
             each val in fileList
                 if !val.name.includes('.')

@@ -14,7 +14,6 @@ function sendFileUpload(e) {
     for (let i = 0; i < files.length; i++) {
         formData.append(`file_${i}`, files[i]);
     }
-    // formData.append('file', files);
     formData.append('path', e.target.dataset.path);
     formData.append('count', files.length.toString());
 
