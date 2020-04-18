@@ -2,11 +2,14 @@ import fs from 'fs';
 import appRoot from 'app-root-path';
 import imageThumbnail from 'image-thumbnail';
 
-const createThumbnail = async (buffer, name) => {
-    imageThumbnail(buffer)
+const createThumbnail = (buffer, name) => {
+    const options = {
+        percentage: 25
+    };
+    imageThumbnail(buffer, options)
         .then(thumbnail => {
-            console.log("/// thumbnail: ", thumbnail);
-            fs.writeFileSync(appRoot + '/uploads/thumb-' + name, thumbnail);
+            fs.writeFileSync(appRoot + '/uploads/thumbnails/THUMB-' + name, thumbnail);
+            return 200
         })
         .catch(err => console.error(err));
 };
