@@ -42,7 +42,7 @@ block content
         div(class="add-input-container")
             h1(class="header") Files
             div(class="add-file")
-                input(class="input-file" type='file' name='fileUpload' id="fileUpload" data-path=path multiple webkitdirectory mozdirectory)
+                input(class="input-file" type='file' name='fileUpload' id="fileUpload" data-path=path multiple)
                 label(for="fileUpload")
                     img(class="add-file-icon" src="/images/icons/icons-05.svg")
         div(class="file-list")
@@ -52,7 +52,7 @@ block content
                         a(class="click-target" href=host + val.path target="_blank")
                         if ["jpg", "png", "svg", "jpeg", "gif"].includes(val.name.split('.').pop().toLowerCase())
                             div(class="file-image-container")
-                                img(src=val.path class="file-thumbnail")
+                                img(src=val.thumbpath class="file-thumbnail")
                             p(class="filename")=val.name
                             div(class="dload-delete-container")
                                 a(href=val.path download)
