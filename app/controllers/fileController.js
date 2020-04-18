@@ -3,7 +3,7 @@ import fs from 'fs';
 import appRoot from 'app-root-path';
 import createThumbnail from '../utils/thumbnail'
 
-export const uploadFile = (req, res) => {
+export const uploadFile = async (req, res) => {
     const fileCount = parseInt(req.body.count);
     for (let i = 0; i < fileCount; i++) {
         const currentFile = "file_" + i;
@@ -13,7 +13,7 @@ export const uploadFile = (req, res) => {
             console.error(err);
         });
         if (["jpg", "png", "jpeg"].includes(file.name.split('.').pop().toLowerCase())) {
-            createThumbnail(file.data, file.name);
+            await createThumbnail(file.data, file.name, file.size);
         }
     }
     res.sendStatus(200);
