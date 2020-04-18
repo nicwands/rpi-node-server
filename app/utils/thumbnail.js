@@ -9,7 +9,6 @@ const createThumbnail = (buffer, name) => {
     imageThumbnail(buffer, options)
         .then(thumbnail => {
             fs.writeFileSync(appRoot + '/uploads/thumbnails/THUMB-' + name, thumbnail);
-            return 200
         })
         .catch(err => console.error(err));
 };
