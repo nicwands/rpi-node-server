@@ -1,18 +1,21 @@
 import path from "path";
 import fs from 'fs';
 import appRoot from 'app-root-path';
+// import createThumbnail from '../utils/thumbnail'
 
 export const uploadFile = (req, res) => {
-    const file = req.files.file;
-    const path = appRoot + "/uploads/" + req.body.path + file.name;
+    const fileCount = parseInt(req.body.count);
+    for (let i = 0; i < fileCount; i++) {
+        const currentFile = "file_" + i;
+        const file = req.files[currentFile];
+        console.log(file);
+        const path = appRoot + "/uploads/" + req.body.path + file.name;
+        file.mv(path, (err) => {
+            console.error(err);
+        });
+        // const thumbnail = createThumbnail(file.data, file.name);
+    }
 
-    file.mv(path, (err) => {
-        console.error(err);
-    });
-    // async function createThumbnail() {
-    // 	const thumbnail = await thumbnnail(path.join(__dirname, "uploads/", req.file.originalname));
-    // }
-    // createThumbnail();
     res.sendStatus(200);
 };
 
