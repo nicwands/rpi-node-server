@@ -133,8 +133,9 @@ input:focus {
 #modalClose {
     cursor: pointer;
     position: absolute;
-    top: 5px;
-    right: 5px;
+    top: 10px;
+    right: 10px;
+    width: 1em;
 }
 
 .folder-name-input {
@@ -144,7 +145,8 @@ input:focus {
 }
 
 .folder-name-submit {
-
+    width: 1.5em;
+    cursor: pointer;
 }
 
 .add-file {
