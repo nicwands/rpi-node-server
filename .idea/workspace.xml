@@ -2,18 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6bf58781-506d-40c5-8ad5-be2f50cdbda1" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/public/images/icons/icons-06.svg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/css-file-icons.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/css-file-icons.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/mobile-style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/mobile-style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/icons/icons-01.svg" beforeDir="false" afterPath="$PROJECT_DIR$/public/images/icons/icons-01.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/icons/icons-02.svg" beforeDir="false" afterPath="$PROJECT_DIR$/public/images/icons/icons-02.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/icons/icons-03.svg" beforeDir="false" afterPath="$PROJECT_DIR$/public/images/icons/icons-03.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/icons/icons-04.svg" beforeDir="false" afterPath="$PROJECT_DIR$/public/images/icons/icons-04.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/icons/icons-05.svg" beforeDir="false" afterPath="$PROJECT_DIR$/public/images/icons/icons-05.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/appFunctions.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/appFunctions.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/style.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/style.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/index.pug" beforeDir="false" afterPath="$PROJECT_DIR$/views/index.pug" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -31,8 +22,8 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/views/index.pug">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="224">
-                  <caret line="27" column="30" selection-start-line="27" selection-start-column="30" selection-end-line="27" selection-end-column="30" />
+                <state relative-caret-position="588">
+                  <caret line="28" column="39" selection-start-line="28" selection-start-column="39" selection-end-line="28" selection-end-column="39" />
                 </state>
               </provider>
             </entry>
@@ -40,7 +31,7 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/public/js/appFunctions.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="242">
+                <state relative-caret-position="1113">
                   <caret line="53" column="5" selection-start-line="53" selection-start-column="5" selection-end-line="53" selection-end-column="5" />
                 </state>
               </provider>
@@ -58,21 +49,21 @@
         </leaf>
       </split-first>
       <split-second>
-        <leaf>
-          <file pinned="false" current-in-tab="false">
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+          <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/public/css/style.css">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="262">
-                  <caret line="136" column="13" selection-start-line="136" selection-start-column="13" selection-end-line="136" selection-end-column="13" />
+                <state relative-caret-position="360">
+                  <caret line="88" column="18" selection-start-line="88" selection-start-column="18" selection-end-line="88" selection-end-column="18" />
                 </state>
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/public/css/css-file-icons.css">
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/public/css/mobile-style.css">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="378">
-                  <caret line="56" column="23" selection-start-line="56" selection-start-column="23" selection-end-line="56" selection-end-column="23" />
+                <state relative-caret-position="240">
+                  <caret line="40" column="18" selection-start-line="40" selection-start-column="18" selection-end-line="40" selection-end-column="18" />
                 </state>
               </provider>
             </entry>
@@ -93,9 +84,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>server.address</find>
-      <find>var server</find>
-      <find>need t</find>
       <find>fetching</find>
       <find>http://localhost:3000</find>
       <find>val</find>
@@ -117,12 +105,15 @@
       <find>files</find>
       <find>filter</find>
       <find>var</find>
-      <find>box-s</find>
       <find>z-i</find>
       <find>formDa</find>
       <find>consol</find>
       <find>Promis</find>
       <find>modal</find>
+      <find>folder-con</find>
+      <find>del</find>
+      <find>box-s</find>
+      <find>bread</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -186,7 +177,6 @@
         <option value="$PROJECT_DIR$/public/images/icons/icons-03.svg" />
         <option value="$PROJECT_DIR$/public/images/icons/icons-04.svg" />
         <option value="$PROJECT_DIR$/public/images/icons/icons-05.svg" />
-        <option value="$PROJECT_DIR$/public/css/mobile-style.css" />
         <option value="$PROJECT_DIR$/.env" />
         <option value="$PROJECT_DIR$/public/js/requests.js" />
         <option value="$PROJECT_DIR$/app/utils/authUtil.js" />
@@ -198,8 +188,9 @@
         <option value="$PROJECT_DIR$/public/js/style.js" />
         <option value="$PROJECT_DIR$/public/js/appFunctions.js" />
         <option value="$PROJECT_DIR$/views/index.pug" />
-        <option value="$PROJECT_DIR$/public/css/style.css" />
         <option value="$PROJECT_DIR$/public/css/css-file-icons.css" />
+        <option value="$PROJECT_DIR$/public/css/mobile-style.css" />
+        <option value="$PROJECT_DIR$/public/css/style.css" />
       </list>
     </option>
   </component>
@@ -215,7 +206,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -257,6 +247,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -374,7 +365,8 @@
       <workItem from="1586198146032" duration="1537000" />
       <workItem from="1586983731091" duration="162000" />
       <workItem from="1587062320517" duration="1203000" />
-      <workItem from="1587236832873" duration="10674000" />
+      <workItem from="1587236832873" duration="10731000" />
+      <workItem from="1587272299014" duration="1114000" />
     </task>
     <task id="LOCAL-00001" summary="made accessible to outside ip">
       <created>1585272548587</created>
@@ -614,24 +606,31 @@
       <option name="project" value="LOCAL" />
       <updated>1587247867364</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="style and icon changes">
+      <created>1587250294980</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1587250294980</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="99034000" />
+    <option name="totallyTimeSpent" value="100205000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.09936575" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.09936575" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="DB Browser" order="3" />
       <window_info id="Favorites" order="4" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32909784" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.24523507" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.24523507" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -651,7 +650,6 @@
     <option name="version" value="1" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="got cookie system working" />
     <MESSAGE value="converted frontend requests to fetch" />
     <MESSAGE value="fixed cookie expiry issue" />
     <MESSAGE value="added folder removal" />
@@ -676,7 +674,8 @@
     <MESSAGE value="image thumbnails working" />
     <MESSAGE value="bug fix" />
     <MESSAGE value="fixed thumbnail lag" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed thumbnail lag" />
+    <MESSAGE value="style and icon changes" />
+    <option name="LAST_COMMIT_MESSAGE" value="style and icon changes" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/index.js" />
@@ -824,9 +823,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/test.png" />
     <entry file="file://$PROJECT_DIR$/app/utils/uploadMiddleware.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="231">
@@ -847,13 +844,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/utils/scanFile.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="10" column="6" selection-start-line="10" selection-start-column="6" selection-end-line="10" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/app/utils/scanFile.js" />
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="63">
@@ -923,15 +914,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/js/appFunctions.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242">
+        <state relative-caret-position="1113">
           <caret line="53" column="5" selection-start-line="53" selection-start-column="5" selection-end-line="53" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/css/mobile-style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="185">
-          <caret line="101" column="1" selection-start-line="101" selection-start-column="1" selection-end-line="101" selection-end-column="1" />
         </state>
       </provider>
     </entry>
@@ -942,24 +926,31 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/public/css/css-file-icons.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="21">
+          <caret line="15" column="18" selection-start-line="15" selection-start-column="18" selection-end-line="15" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/views/index.pug">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="224">
-          <caret line="27" column="30" selection-start-line="27" selection-start-column="30" selection-end-line="27" selection-end-column="30" />
+        <state relative-caret-position="588">
+          <caret line="28" column="39" selection-start-line="28" selection-start-column="39" selection-end-line="28" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/css/mobile-style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="40" column="18" selection-start-line="40" selection-start-column="18" selection-end-line="40" selection-end-column="18" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/css/style.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="262">
-          <caret line="136" column="13" selection-start-line="136" selection-start-column="13" selection-end-line="136" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/css/css-file-icons.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="56" column="23" selection-start-line="56" selection-start-column="23" selection-end-line="56" selection-end-column="23" />
+        <state relative-caret-position="360">
+          <caret line="88" column="18" selection-start-line="88" selection-start-column="18" selection-end-line="88" selection-end-column="18" />
         </state>
       </provider>
     </entry>
