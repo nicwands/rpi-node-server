@@ -67,6 +67,12 @@
     margin: 0;
 }
 
+.file-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
 .file-container {
     width: 27em;
     height: 38.5em;
