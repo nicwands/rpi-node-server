@@ -6,6 +6,10 @@ block content
             h1(class="title") My Cloud
             div(class="progress-container" id="progressContainer")
                 div(class="bar" id="progress")
+            div(class="disk-space-container")
+                p(class="available-text")=(spaceAvailable - spaceUsedMB).toFixed(2) + "MB available"
+                div(class="disk-space-bar")
+                    div(class="disk-space-level" id="diskSpace" data-space-used=spaceUsedMB data-space-available=spaceAvailable)
 
         div(class="breadcrumb-container")
             a(class="breadcrumb" href="/") Home

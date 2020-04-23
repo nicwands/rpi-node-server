@@ -15,3 +15,8 @@ function closeFolderModal() {
 
 let closeFolderIcon = document.getElementById('modalClose');
 closeFolderIcon.addEventListener('click', closeFolderModal);
+
+let diskSpace = document.getElementById('diskSpace');
+const spaceUsed = diskSpace.dataset.spaceUsed;
+const spaceAvailable = diskSpace.dataset.spaceAvailable;
+diskSpace.style.width = spaceUsed / spaceAvailable * 100 + "%";

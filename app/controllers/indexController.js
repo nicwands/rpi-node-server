@@ -1,9 +1,11 @@
 import fs from 'fs';
+import getSize from 'get-folder-size';
 
 export const getIndex = (req, res) => {
     let clientIp = req.connection.remoteAddress;
     let fileList = [];
     let fileNames;
+
     if (req.params[0]) {
         fileNames = fs.readdirSync('./uploads/' + req.params[0]);
 
@@ -40,9 +42,20 @@ export const getIndex = (req, res) => {
         }
     }
 
-    res.render('index', {
-        fileList,
-        path: req.params[0],
-        host: clientIp.startsWith("10.") ? process.env.LOCAL_IP : process.env.FRONT_URL
+    let spaceUsedMB = 0;
+    getSize('./uploads', (err, size) => {
+        if (err) { throw err; }
+
+        spaceUsedMB = (size / 1024 / 1024).toFixed(2);
+
+        res.render('index', {
+            fileList,
+            path: req.params[0],
+            host: clientIp.startsWith("10.") ? process.env.LOCAL_IP : process.env.FRONT_URL,
+            spaceUsedMB,
+            spaceAvailable: process.env.SPACE_AVAILABLE
+        });
     });
+
+
 };
