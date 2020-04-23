@@ -68,6 +68,31 @@ input:focus {
     border-radius: 10px;
 }
 
+.disk-space-container {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-70%);
+}
+
+.available-text {
+    margin: 0 0 5px 0;
+}
+
+.disk-space-bar {
+    height: 10px;
+    width: 300px;
+    background: #68de6d;
+    border-radius: 10px;
+}
+
+.disk-space-level {
+    height: 10px;
+    width: 100%;
+    background: #54b458;
+    border-radius: 10px;
+}
+
 .breadcrumb-container {
     margin-bottom: 1em;
     margin-left: -5px;
