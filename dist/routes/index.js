@@ -9,9 +9,9 @@ var _express = _interopRequireDefault(require("express"));
 
 var _indexRouter = _interopRequireDefault(require("./indexRouter"));
 
-var _uploadRouter = _interopRequireDefault(require("./uploadRouter"));
+var _loginRouter = _interopRequireDefault(require("./loginRouter"));
 
-var _deleteRouter = _interopRequireDefault(require("./deleteRouter"));
+var _fileRouter = _interopRequireDefault(require("./fileRouter"));
 
 var _folderRouter = _interopRequireDefault(require("./folderRouter"));
 
@@ -20,8 +20,8 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "d
 var router = _express["default"].Router();
 
 router.use('/', _indexRouter["default"]);
-router.use('/upload', _uploadRouter["default"]);
-router.use('/delete', _deleteRouter["default"]);
+router.use('/login', _loginRouter["default"]);
+router.use('/file', _fileRouter["default"]);
 router.use('/folder', _folderRouter["default"]);
 var _default = router;
 exports["default"] = _default;
