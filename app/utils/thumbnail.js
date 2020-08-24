@@ -8,7 +8,7 @@ const createThumbnail = async (buffer, name, size) => {
     };
     imageThumbnail(buffer, options)
         .then(thumbnail => {
-            fs.writeFileSync(appRoot + '/uploads/thumbnails/THUMB-' + name, thumbnail);
+            fs.writeFileSync(appRoot + '/uploads/.thumbnails/THUMB-' + name, thumbnail);
         })
         .catch(err => console.error(err));
     await imageThumbnail

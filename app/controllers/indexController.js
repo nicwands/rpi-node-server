@@ -17,7 +17,7 @@ export const getIndex = (req, res) => {
             tempObj['path'] = filePath;
 
             if (["jpg", "png", "jpeg"].includes(fileNames[i].split('.').pop().toLowerCase())) {
-                tempObj['thumbpath'] = (clientIp.startsWith("10.") ? process.env.LOCAL_IP : process.env.FRONT_URL) + 'thumbnails/THUMB-' + fileNames[i]
+                tempObj['thumbpath'] = (clientIp.startsWith("10.") ? process.env.LOCAL_IP : process.env.FRONT_URL) + '.thumbnails/THUMB-' + fileNames[i]
             }
 
             fileList.push(tempObj);
@@ -25,7 +25,7 @@ export const getIndex = (req, res) => {
     } else {
         const fileNames = fs.readdirSync('./uploads');
         const cleanFiles = fileNames.filter((file) => {
-            return file !== ".gitkeep" && file !== ".DS_Store" && file !== "thumbnails";
+            return file !== ".gitkeep" && file !== ".DS_Store" && file !== ".thumbnails";
         });
 
         for (let i = 0; i < cleanFiles.length; i++) {
@@ -35,7 +35,7 @@ export const getIndex = (req, res) => {
             tempObj['path'] = cleanFiles[i];
 
             if (["jpg", "png", "jpeg"].includes(cleanFiles[i].split('.').pop().toLowerCase())) {
-                tempObj['thumbpath'] = 'thumbnails/THUMB-' + cleanFiles[i]
+                tempObj['thumbpath'] = '.thumbnails/THUMB-' + cleanFiles[i]
             }
 
             fileList.push(tempObj);
