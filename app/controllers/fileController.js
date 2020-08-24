@@ -23,7 +23,7 @@ export const deleteFile = (req, res) => {
     console.log("deleting ", req.body.fileName);
     fs.unlinkSync(path.join(appRoot.path, "uploads/", req.body.fileName));
     if (["jpg", "png", "jpeg"].includes(req.body.fileName.split('.').pop().toLowerCase())) {
-        const thumbPath = path.join(appRoot.path, "uploads/thumbnails/", "THUMB-" + req.body.fileName.split('/').pop())
+        const thumbPath = path.join(appRoot.path, "uploads/.thumbnails/", "THUMB-" + req.body.fileName.split('/').pop())
         fs.unlinkSync(thumbPath);
     }
     res.redirect('/');
